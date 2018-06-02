@@ -79,7 +79,8 @@ class App extends Component {
       if (moonRiseMoment.isBetween(moonMonthStart, moonMonthEnd)) {
         moonRises.push(moonRiseMoment.format())
       }
-    } while (calculationTime.isBefore(nextNewMoon.newMoon))
+      //if (calculationTime.isAfter(moment("2018-06-03"))) debugger
+    } while (calculationTime.isBefore(moonMonthEnd))
     moonRises.push(moonMonthEnd.format())
     return uniq(moonRises);
   }
@@ -97,7 +98,6 @@ class App extends Component {
   }
 
   calculateMoonDayFor = (date, coordinates) => {
-    console.log('calculating moon day for: ', {date, coordinates})
     const calculationCacheKey = `${date.format("YYYY-MM-DDTHH:mm")}_${JSON.stringify(coordinates)}`
     const cachedCalculation = cache.getCachedCalculation(calculationCacheKey)
     if (cachedCalculation) return cachedCalculation
@@ -106,6 +106,7 @@ class App extends Component {
     const prevNewMoon = this.getNewMoonDate(date, coordinates, true)
     const nextNewMoon = this.getNewMoonDate(date, coordinates)
     const moonRisesAtSoughtMonth = this.getMoonRisesBetween(prevNewMoon, nextNewMoon, coordinates)
+    console.log(moonRisesAtSoughtMonth)
     const moonDays = this.convertMoonRisesToDays(moonRisesAtSoughtMonth)
     const soughtMoonDay = moonDays.find(d => date.isBetween(d.dayStart, d.dayEnd))
     cache.cacheCalculationResult(calculationCacheKey, soughtMoonDay)
