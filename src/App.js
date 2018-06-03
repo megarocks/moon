@@ -13,7 +13,7 @@ const StyledComponentWrap = styled.div`
   grid-template-rows: 32% auto 20px;
   height: 100vh
   color: #eee;
-  background: rgb(26, 30, 33);
+  background: #152643;
   & #number {
     font-size: 10rem;
     display: flex
