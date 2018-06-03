@@ -3,7 +3,6 @@ export const initializeCache = () => {
 }
 
 export const cacheCalculationResult = (cacheKey, cacheData) => {
-  const moonDayCalculations = JSON.parse(localStorage.getItem("moonDayCalculations"))
   localStorage.setItem("moonDayCalculations", JSON.stringify({[cacheKey]: cacheData}))
 }
 
