@@ -82,11 +82,12 @@ class App extends Component {
     do {
       calculationTime.add(1, 'h')
       const moonTimes = SunCalc.getMoonTimes(calculationTime, coordinates.lat, coordinates.lon)
+      if (!moonTimes.rise) continue;
+
       let moonRiseMoment = moment(moonTimes.rise)
       if (moonRiseMoment.isBetween(moonMonthStart, moonMonthEnd)) {
         moonRises.push(moonRiseMoment.format())
       }
-      //if (calculationTime.isAfter(moment("2018-06-03"))) debugger
     } while (calculationTime.isBefore(moonMonthEnd))
     moonRises.push(moonMonthEnd.format())
     return uniq(moonRises);
