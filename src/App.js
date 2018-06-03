@@ -126,13 +126,14 @@ class App extends Component {
     const { position: { coords: {latitude:lat = 49.9935, longitude:lon = 36.2304 } = {} } = {} } = this.state
     const { customTime, currentTime } = this.state;
     const currentMoonDay = this.calculateMoonDayFor(customTime || currentTime, {lat, lon})
+    const currentMoonDayEnd = moment(currentMoonDay.dayEnd)
     return (
       <StyledComponentWrap>
         <div id="number">{currentMoonDay.dayNumber}</div>
         <div id="details">
           <div>Calculation For:</div> <div>{moment(customTime || currentTime).format('ddd D MMM HH:mm:ss')}</div>
           <div>Moon Day Start:</div> <div>{moment(currentMoonDay.dayStart).format('ddd D MMM HH:mm:ss')}</div>
-          <div>Moon Day End:</div> <div>{moment(currentMoonDay.dayEnd).format('ddd D MMM HH:mm:ss')}</div>
+          <div>Moon Day End:</div> <div>{currentMoonDayEnd.format('ddd D MMM HH:mm:ss')} ({currentMoonDayEnd.fromNow()})</div>
         </div>
         <div id="version">{version}</div>
       </StyledComponentWrap>
