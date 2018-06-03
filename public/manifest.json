@@ -1,7 +1,16 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Time Navigarot",
+  "name": "Time Navigator",
+  "apple-mobile-web-app-title": "Time Navigator",
+  "apple-touch-startup-image": "favicon.ico",
   "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    }
+  ],
+  "apple-touch-icon": [
     {
       "src": "favicon.ico",
       "sizes": "64x64 32x32 24x24 16x16",
@@ -10,6 +19,7 @@
   ],
   "start_url": "./index.html",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#152643",
+  "background_color": "#152643",
+  "orientation": "portrait"
 }
