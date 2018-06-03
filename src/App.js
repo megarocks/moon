@@ -40,7 +40,9 @@ class App extends Component {
   constructor(){
     super()
     cache.initializeCache()
-    this.state = {}
+    this.state = {
+      currentTime: moment()
+    }
   }
 
   componentDidMount = () => {
@@ -121,11 +123,13 @@ class App extends Component {
 
   render() {
     const { position: { coords: {latitude:lat = 49.9935, longitude:lon = 36.2304 } = {} } = {} } = this.state
-    const currentMoonDay = this.calculateMoonDayFor(moment(), {lat, lon})
+    const { customTime, currentTime } = this.state;
+    const currentMoonDay = this.calculateMoonDayFor(customTime || currentTime, {lat, lon})
     return (
       <StyledComponentWrap>
         <div id="number">{currentMoonDay.dayNumber}</div>
         <div id="details">
+          <div>Calculation For:</div> <div>{moment(customTime || currentTime).format('ddd D MMM HH:mm:ss')}</div>
           <div>Moon Day Start:</div> <div>{moment(currentMoonDay.dayStart).format('ddd D MMM HH:mm:ss')}</div>
           <div>Moon Day End:</div> <div>{moment(currentMoonDay.dayEnd).format('ddd D MMM HH:mm:ss')}</div>
         </div>
