@@ -40,7 +40,6 @@ class App extends Component {
   componentDidMount = () => {
     navigator.geolocation.getCurrentPosition(position => {
       this.setState({position})
-      console.log(position)
     })
 
     setInterval(() => {
@@ -106,8 +105,8 @@ class App extends Component {
     const prevNewMoon = this.getNewMoonDate(date, coordinates, true)
     const nextNewMoon = this.getNewMoonDate(date, coordinates)
     const moonRisesAtSoughtMonth = this.getMoonRisesBetween(prevNewMoon, nextNewMoon, coordinates)
-    console.log(moonRisesAtSoughtMonth)
     const moonDays = this.convertMoonRisesToDays(moonRisesAtSoughtMonth)
+    console.log(moonDays)
     const soughtMoonDay = moonDays.find(d => date.isBetween(d.dayStart, d.dayEnd))
     cache.cacheCalculationResult(calculationCacheKey, soughtMoonDay)
 
