@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import styled from 'styled-components'
+import {version} from "../package.json"
 
 import moment from "moment"
 import SunCalc from "suncalc"
@@ -9,7 +10,7 @@ import * as cache from "./cache"
 
 const StyledComponentWrap = styled.div`
   display: grid;
-  grid-template-rows: 32% 68%;
+  grid-template-rows: 32% auto 20px;
   height: 100vh
   color: #eee;
   background: rgb(26, 30, 33);
@@ -25,7 +26,12 @@ const StyledComponentWrap = styled.div`
     display: grid;
     grid-template-columns: max-content auto;
     grid-auto-rows: max-content;
-    grid-gap: 10px
+    grid-gap: 10px;
+  }
+
+  & #version {
+    display: flex;
+    justify-content: center;
   }
 `;
 
@@ -123,6 +129,7 @@ class App extends Component {
           <div>Moon Day Start:</div> <div>{moment(currentMoonDay.dayStart).format('ddd D MMM HH:mm:ss')}</div>
           <div>Moon Day End:</div> <div>{moment(currentMoonDay.dayEnd).format('ddd D MMM HH:mm:ss')}</div>
         </div>
+        <div id="version">{version}</div>
       </StyledComponentWrap>
     );
   }
