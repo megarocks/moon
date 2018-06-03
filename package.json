@@ -1,6 +1,6 @@
 {
   "name": "moon",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "homepage": "https://megarocks.github.io/moon",
   "private": true,
   "dependencies": {
