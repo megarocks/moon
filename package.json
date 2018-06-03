@@ -1,7 +1,7 @@
 {
   "name": "moon",
   "version": "0.5.0",
-  "homepage": "https://megarocks.github.io/moon",
+  "homepage": "https://megarocks.github.io/time-navigator",
   "private": true,
   "dependencies": {
     "gh-pages": "^1.2.0",
