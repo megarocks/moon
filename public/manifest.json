@@ -1,8 +1,6 @@
 {
   "short_name": "Time Navigarot",
   "name": "Time Navigator",
-  "apple-mobile-web-app-title": "Time Navigator",
-  "apple-touch-startup-image": "favicon.ico",
   "icons": [
     {
       "src": "favicon.ico",
@@ -10,15 +8,8 @@
       "type": "image/x-icon"
     },
     {
-      "src": "android-chrome-192x192.png",
-      "sizes": "192x192 64x64 32x32 24x24 16x16",
-      "type": "image/png"
-    }
-  ],
-  "apple-touch-icon": [
-    {
-      "src": "apple-touch-icon.png",
-      "sizes": "180x180 64x64 32x32 24x24 16x16",
+      "src": "android-chrome-512x512.png",
+      "sizes": "512x512 192x192 128x128 96x96",
       "type": "image/png"
     }
   ],
