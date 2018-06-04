@@ -1,6 +1,6 @@
 {
   "name": "moon",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "homepage": "https://megarocks.github.io/time-navigator",
   "private": true,
   "dependencies": {
