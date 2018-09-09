@@ -126,6 +126,9 @@ class App extends Component {
     const { position: { coords: {latitude:lat = 49.9935, longitude:lon = 36.2304 } = {} } = {} } = this.state
     const { customTime, currentTime } = this.state;
     const currentMoonDay = this.calculateMoonDayFor(customTime || currentTime, {lat, lon})
+    if (!currentMoonDay)
+      return <div>Can not calculate current moon date. Unusual astrologic situation</div>
+
     const currentMoonDayEnd = moment(currentMoonDay.dayEnd)
     return (
       <StyledComponentWrap>
